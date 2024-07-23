@@ -1,24 +1,13 @@
-import React, {ReactNode} from 'react'
-import Navbar from '@/components/Navbar'
-import { Metadata } from 'next';
+import { ReactNode } from 'react';
 
-export const metadata: Metadata = {
-  title: "YOOM",
-  description: "Video calling App",
-  icons: {
-    icon: "/icons/logo.svg",
-  },
-};
+import StreamVideoProvider from '@/providers/StreamClientProvider';
 
-const Rootlayout = ({children} : {children :
-ReactNode }) => {
+const RootLayout = ({ children }: Readonly<{ children: ReactNode }>) => {
   return (
     <main>
-        <Navbar/>
-        {children}
-        Footer 
+      <StreamVideoProvider>{children}</StreamVideoProvider>
     </main>
-  )
-}
+  );
+};
 
-export default Rootlayout
+export default RootLayout;
